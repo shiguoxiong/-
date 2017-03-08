@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        html,body{
+            width:100%;
+            height:100%;
+        }
+        #bar{
+            width:600px;
+            height:50px;
+            border:1px solid #ccc;
+            position:relative;
+
+        }
+
+        span{ float:left;
+            display: inline-block;
+            width:100px;
+            height:100%;
+            border:1px solid #ccc;
+        }
+        i{
+            position: absolute;
+            display: block;
+            width:100px;
+            height:5px;
+            background: red;
+            bottom:0;
+        }
+        .content{
+            width: 600px;
+            height:300px;
+            border:1px solid #cccccc;
+            position: relative;
+        }
+        .content .rom{
+            width:100%;
+            height:100%;
+            position:absolute ;
+            left:0;
+            top:0;
+        }
+    </style>
+</head>
+<body>
+<div id="bar">
+    <span>数据</span>
+    <span>军事</span>
+    <span>娱乐</span>
+    <span>数据</span>
+    <i></i>
+</div>
+<div class="content">
+    <div class="rom" style="display: block">第一列</div>
+    <div class="rom"  style="display: none">第二列</div>
+    <div class="rom"  style="display: none">第三列</div>
+    <div class="rom"  style="display: none">第四列</div>
+</div>
+
+</body>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+
+    var bar=document.getElementById('bar')
+    var i=document.querySelector('i')
+    i.style.left=0;
+    var time=null;
+    bar.addEventListener('click',function(e){
+
+        var target1=e.target.offsetLeft;
+        console.log($(e.target).index())
+        $('.content .rom').eq([$(e.target).index()]).css('display','block').siblings().css('display','none')
+        var start=parseInt(i.style.left)
+        move(start,target1)
+    })
+    function move(start1,target){
+        var speed=(target-start1)/10;
+        if(speed>0){
+            speed=Math.ceil(speed)
+        }else{
+            speed=Math.floor(speed)
+        }
+        start1=start1+speed;
+        i.style.left=start1+'px';
+        if(start1==target){
+            clearTimeout(time)
+        }else{
+            time=setTimeout(function(){
+                move(start1,target)
+
+            },16)
+        }
+
+
+
+    }
+</script>
+</html>
