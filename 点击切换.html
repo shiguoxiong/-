@@ -24,11 +24,12 @@
         span{
             float:left;
             display: inline-block;
-            width:100px;
+            width:16%;
             height:100%;
             text-align: center;
             line-height: 50px;
             border:1px solid #ccc;
+            padding-right: 1px;
         }
         i{
             position: absolute;
@@ -52,6 +53,10 @@
             position:absolute ;
             left:0;
             top:0;
+           overflow: hidden;
+        }
+        .bg{
+            background: blue;
         }
     </style>
 </head>
@@ -61,13 +66,18 @@
     <span>军事</span>
     <span>娱乐</span>
     <span>数据</span>
+    <span>数据</span>
+    <span>数据</span>
+
     <i></i>
 </div>
 <div class="content">
-    <div class="rom" style="display: block">第一列</div>
-    <div class="rom"  style="display: none">第二列</div>
-    <div class="rom"  style="display: none">第三列</div>
-    <div class="rom"  style="display: none">第四列</div>
+    <div class="rom" style="display: block">第一列发货DVD发但是看见好多了考试现场vhjxvjdhdljsvd</div>
+    <div class="rom"  style="display: none">第二列iOS啊积分is冬季佛附近的所发生的时间段内付军所多女付军所多付女所军多女发多付多所付所多多多多</div>
+    <div class="rom"  style="display: none">第三列发动机扩军多所所所所所所所所所扩军多付或扩军多所付多所付多扩军所付或扩多说付</div>
+    <div class="rom"  style="display: none">第四列短时间内的几年时间内的大家圣诞节付电话费的说法都是会计法简单方便大家是否觉得</div>
+    <div class="rom"  style="display: none">第五列短时间内的几年时间内的大家圣诞节付电话费的说法都是会计法简单方便大家是否觉得</div>
+    <div class="rom"  style="display: none">第六列短时间内的几年时间内的大家圣诞节付电话费的说法都是会计法简单方便大家是否觉得</div>
 </div>
 
 </body>
@@ -79,9 +89,10 @@
     i.style.left=0;
     var time=null;
     bar.addEventListener('click',function(e){
-
+         $('span').removeClass('bg')
         var target1=e.target.offsetLeft;
         console.log($(e.target).index())
+        $(e.target).addClass('bg')
         $('.content .rom').eq([$(e.target).index()]).css('display','block').siblings().css('display','none')
         var start=parseInt(i.style.left)
         move(start,target1)
@@ -101,7 +112,7 @@
             time=setTimeout(function(){
                 move(start1,target)
 
-            },16)
+            },10)
         }
 
 
