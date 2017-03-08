@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<script src="./vue/dist/vue.min.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+<body>
+<div id="box">
+    <h1>标题</h1>
+    <router-link to="/loo">loo</router-link>
+    <router-link to="/lpp">lpp</router-link>
+    <!--<input v-model="message" placeholder="edit me">-->
+    <!--<p>{{total}}</p>-->
+    <!--<p>Message is: {{ message}}</p>-->
+     <!--<child :kk=message v-on:add="add1"></child>-->
+      <!-- -->
+      <!--<fa></fa>-->
+<!--<component></component>-->
+   <!--<child></child>-->
+    <!--<fa></fa>-->
+    <router-view></router-view>
+</div>
+
+</body>
+<script>
+//    var Event = new Vue();
+//    var pp=new Vue({
+//        el:'#box',
+//
+//        data:{
+//            message:'11',
+//            current:'fa',
+//            total:0,
+//            a:3
+//        },
+//        created:function(){
+//            console.log('a is'+this.a)
+//        },
+//        computed:{
+//           full:{
+//               get:function(){
+//                   return this.a
+//               }
+//           }
+//        },
+//        methods:{
+//        add1:function(){
+//            this.total++
+//            alert(this.total)
+//        }
+//        },
+//        components:{
+//            child:{
+//                props:['kk'],
+//                template:'<div>{{a}}{{kk}}<button v-on:click="add">{{counter}}</button><button v-on:click="send">传递组件</button></div>',
+//                data:function(){
+//                    return {
+//                        a:'我',
+//                       counter:0,
+//                        m:1
+//                    }
+//
+//                },
+//                methods:{
+//                    add:function(){
+//                        this.counter++
+//
+//                    },
+//                    send:function(){
+//                        Event.$emit('aa',this.m)
+//
+//                    }
+//
+//                }
+//            },
+//            fa:{
+//                template:'<div>{{b}}</div>',
+//
+//                data:function(){
+//                    return {
+//                        b:'你们',
+//                        m:''}
+//                }
+//
+//            }
+//        }
+//    })
+    /*
+    * 定义路由组件
+    * */
+                const loo={template:'<div>我是loo</div>'}
+                const lpp={template:'<div>我是lpp</div>'}
+      /*
+      * 配置路径
+      * */
+                     const routes=[
+                         {path:'/loo',component:loo},
+                         {path:'/lpp',component:lpp}
+                     ]
+const router=new VueRouter({
+    routes:routes
+})
+    /*初始化路由*/
+    const app=new Vue({
+      router:router
+    }).$mount('#box')
+
+
+
+</script>
+</html>
